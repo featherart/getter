@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import uniqueId from 'lodash/uniqueId';
-import logo from './logo.svg';
+import People from './People';
 import './App.css';
 
 class App extends Component {
@@ -16,11 +15,11 @@ class App extends Component {
       .then(results => {
         return results.json();
       }).then(data => {
-        console.log('data', data)
+        console.log('data', data.results)
         let results = data.results.map((pic) => {
           return(
-            <div key={pic.results}>
-              <img src={pic.picture.large} />
+            <div key={pic.cell}>
+              <img src={pic.picture.large} alt={pic.name.first} />
             </div>
           )
         })
@@ -30,14 +29,14 @@ class App extends Component {
 
   render() {
     const { results } = this.state
-    console.log(results)
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">People</h1>
         </header>
-        <div>{results}<img src="https://randomuser.me/api/portraits/thumb/women/16.jpg" /></div>
+        <div>
+          <People />
+        </div>
       </div>
     );
   }
