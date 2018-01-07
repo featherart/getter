@@ -1,14 +1,23 @@
 .App {
   text-align: center;
+  font-family: Helvetica, sans-serif;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background: linear-gradient(to right, royalblue, goldenrod);
+  height: 60px;
   padding: 20px;
   color: white;
 }
 
 .App-title {
   font-size: 1.5em;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-template-rows: auto;
+  padding: 2%;
+  grid-gap: .9rem;
 }

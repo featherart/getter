@@ -32,7 +32,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">People</h1>
+          <h1 className="App-title">Just Some Random People</h1>
         </header>
         <div>
           <People />
