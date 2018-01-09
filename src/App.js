@@ -29,14 +29,14 @@ class App extends Component {
           <div className="controls-container">
             <button
               data-name="first"
-              className="sort-button"
+              className={`sort-button ${this.state.sortBy === 'first' ? 'selected' : ''}`}
               onClick={e => this.handleSortBy(e)}
             >
               Sort First Name <MdSort />
             </button>
             <button
               data-name="last"
-              className="sort-button"
+              className={`sort-button ${this.state.sortBy === 'last' ? 'selected' : ''}`}
               onClick={e => this.handleSortBy(e)}
             >
               Sort Last Name <MdSort />

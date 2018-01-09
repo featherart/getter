@@ -14,7 +14,7 @@ button {
   border-radius: 0;
 }
 button:hover {
-  opacity: .5;
+  background: #89A236;
 }
 
 .app {
@@ -22,7 +22,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: "Trebuchet MS";
+  font-family: "Trebuchet MS", Verdana, sans-serif;
 }
 
 .app-icon {
@@ -33,7 +33,7 @@ button:hover {
 }
 
 .header {
-  background: linear-gradient(to right, #6eaec1, #d6805b);
+  background: linear-gradient(to right, #145325, #BDDB5D);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -59,23 +59,28 @@ button:hover {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  background-color: #8d99c5;
+  background-color: #06260E;
   color: #fff;
   padding: 1%;
 }
 
 .sort-button, .search-button {
   border-radius: 0;
-  background-color: #8d99c5;
+  background-color: transparent;
   color: #fff;
   border: 0;
   font-size: .75rem;
   font-weight: bold;
   border: 1px solid #fff;
 }
+.sort-button.selected {
+  background: #57691A;
+}
+
 .search-button {
   margin-left: 10px;
 }
+
 .picture-container {
   display: flex;
   flex-direction: column;
@@ -84,7 +89,7 @@ button:hover {
 
 .person-name {
   font-size: .8rem;
-  color: #5058bd;
+  color: #57691A;
 }
 
 .people-container {
