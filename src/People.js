@@ -40,9 +40,19 @@ class People extends Component {
     });
   }
 
+  searchFor(results, searchTerm) {
+    console.log(results, searchTerm)
+    return results.filter(ele => {
+      ele.firstName.toLowerCase().includes(searchTerm.toLowerCase())
+    })
+  }
+
   render() {
     const { results } = this.state;
-    const { sortBy } = this.props;
+    const { sortBy, searchTerm } = this.props;
+    const { searchedResults } = this.searchFor(results, searchTerm);
+    console.log('here', searchedResults, searchTerm)
+
     return (
       <div className="people-container">
         {this.sortBy(results, sortBy).map(pic =>

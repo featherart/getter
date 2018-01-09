@@ -6,17 +6,29 @@ import Title from "./Title";
 import "./App.css";
 
 class App extends Component {
-  state = {
-    sortBy: "",
-    sortOrder: "true"
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchTerm: "",
+      sortBy: "",
+      sortOrder: true
+    };
+  }
 
   handleSortBy(e) {
     this.setState({ sortBy: e.target.dataset["name"] });
   }
 
+  handleSearch(e) {
+    this.setState({ searchTerm: e.target.value });
+  }
+
+  submitSearch(e) {
+    e.preventDefault();
+  }
+
   render() {
-    const { sortBy, sortOrder } = this.state;
+    const { sortBy, sortOrder, searchTerm } = this.state;
 
     return (
       <div className="app">
@@ -27,31 +39,38 @@ class App extends Component {
           <div className="controls-container">
             <button
               data-name="first"
-              className={`sort-button ${this.state.sortBy === "first"
-                ? "selected"
-                : ""}`}
+              className={`sort-button ${sortBy === "first" ? "selected" : ""}`}
               onClick={e => this.handleSortBy(e)}
             >
               Sort First Name <MdSort />
             </button>
             <button
               data-name="last"
-              className={`sort-button ${this.state.sortBy === "last"
-                ? "selected"
-                : ""}`}
+              className={`sort-button ${sortBy === "last" ? "selected" : ""}`}
               onClick={e => this.handleSortBy(e)}
             >
               Sort Last Name <MdSort />
             </button>
             <form>
               <label>Search People</label>
-              <input type="text" />
-              <button className="search-button">
+              <input
+                type="text"
+                value={"" || searchTerm}
+                onChange={e => this.handleSearch(e)}
+              />
+              <button
+                className="search-button"
+                onClick={e => this.submitSearch(e)}
+              >
                 Search <MdSearch />
               </button>
             </form>
           </div>
-          <People sortBy={sortBy} sortOrder={sortOrder} />
+          <People
+            sortBy={sortBy}
+            sortOrder={sortOrder}
+            searchTerm={searchTerm}
+          />
         </div>
       </div>
     );
