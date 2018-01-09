@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import People from "./People";
 import MdSort from "react-icons/lib/md/sort";
 import MdSearch from "react-icons/lib/md/search";
-import Title from './Title'
+import Title from "./Title";
 import "./App.css";
 
 class App extends Component {
@@ -12,7 +12,7 @@ class App extends Component {
   };
 
   handleSortBy(e) {
-    this.setState({sortBy: e.target.dataset["name"]});
+    this.setState({ sortBy: e.target.dataset["name"] });
   }
 
   render() {
@@ -27,14 +27,18 @@ class App extends Component {
           <div className="controls-container">
             <button
               data-name="first"
-              className={`sort-button ${this.state.sortBy === 'first' ? 'selected' : ''}`}
+              className={`sort-button ${this.state.sortBy === "first"
+                ? "selected"
+                : ""}`}
               onClick={e => this.handleSortBy(e)}
             >
               Sort First Name <MdSort />
             </button>
             <button
               data-name="last"
-              className={`sort-button ${this.state.sortBy === 'last' ? 'selected' : ''}`}
+              className={`sort-button ${this.state.sortBy === "last"
+                ? "selected"
+                : ""}`}
               onClick={e => this.handleSortBy(e)}
             >
               Sort Last Name <MdSort />
